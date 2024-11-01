@@ -106,6 +106,7 @@ namespace Course.View.Pages
             Duration9Tbl.Text = App.context.CourseTable.Where(c => c.ID == 9).Select(c => c.Duration + " часов").FirstOrDefault().ToString();
 
             // Десятый курс
+            // Десятый курс
             Name10Tbl.Text = App.context.CourseTable.Where(c => c.ID == 10).Select(c => c.Title).FirstOrDefault();
             Desc10Tbl.Text = App.context.CourseTable.Where(c => c.ID == 10).Select(c => c.Description).FirstOrDefault();
             Category10Tbl.Text = App.context.CourseTable.Where(c => c.ID == 10).Select(c => c.Category.Title).FirstOrDefault();

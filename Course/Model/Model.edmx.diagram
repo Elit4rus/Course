@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9c6b650bd32943849bc48259b5a92916" Name="Diagram1">
-        <EntityTypeShape EntityType="CoursesModel.Category" Width="1.5" PointX="0.75" PointY="7.375" />
+        <EntityTypeShape EntityType="CoursesModel.Category" Width="1.5" PointX="0.75" PointY="8.5" />
         <EntityTypeShape EntityType="CoursesModel.CourseTable" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="CoursesModel.Format" Width="1.5" PointX="0.75" PointY="5" />
-        <EntityTypeShape EntityType="CoursesModel.Status" Width="1.5" PointX="3" PointY="8.875" />
-        <EntityTypeShape EntityType="CoursesModel.Teacher" Width="1.5" PointX="0.75" PointY="1.625" />
-        <EntityTypeShape EntityType="CoursesModel.User" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="CoursesModel.Format" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="CoursesModel.Status" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="CoursesModel.Teacher" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="CoursesModel.User" Width="1.5" PointX="3" PointY="8.375" />
         <EntityTypeShape EntityType="CoursesModel.UserCourse" Width="1.5" PointX="5.25" PointY="1.5" />
         <AssociationConnector Association="CoursesModel.FK_Course_Category" />
         <AssociationConnector Association="CoursesModel.FK_Course_Format" />

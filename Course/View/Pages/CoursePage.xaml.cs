@@ -131,60 +131,172 @@ namespace Course.View.Pages
 
         private void Add1Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 1).Select(c => c.ID).FirstOrDefault());
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 1).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 1).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add2Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 2).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 2).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add3Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 3).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 3).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add4Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 4).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 4).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add5Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 5).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 5).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add6Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 6).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 6).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add7Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 7).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 7).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add8Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 8).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 8).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add9Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 9).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 9).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void Add10Btn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            if (CheckCourse(App.currentUser.ID, App.context.CourseTable.Where(c => c.ID == 10).Select(c => c.ID).FirstOrDefault()) == true)
+            {
+                UserCourse newUserCourse = new UserCourse()
+                {
+                    UserID = App.currentUser.ID,
+                    CourseID = App.context.CourseTable.Where(c => c.ID == 10).Select(c => c.ID).FirstOrDefault(),
+                    StatusID = 1
+                };
+                App.context.UserCourse.Add(newUserCourse);
+                App.context.SaveChanges();
+                MessageBox.Show("Курс добавлен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
-        private void CheckCourse(int userID, int courseID)
+        private bool CheckCourse(int userID, int courseID)
         {
             if (userID == courseID)
             {
                 MessageBox.Show("Это курс уже добавлен в профиль!");
+                return false;
             }
+            return true;
         }
 
         private void CategoryCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)

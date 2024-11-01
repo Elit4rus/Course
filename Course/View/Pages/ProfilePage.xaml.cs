@@ -2,6 +2,7 @@
 using Course.Model;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Course.View.Pages
@@ -26,7 +27,35 @@ namespace Course.View.Pages
             FrameHelper.mainFrame.Navigate(new View.Pages.WelcomePage());
         }
 
+
+        private void UserCourseLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DeleteBtn.Visibility = Visibility.Visible;
+        }
         private void SaveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (StatusCmb.SelectedItem == null && UserCourseLv.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите курс и статус!");
+            }
+            else if (StatusCmb.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите статус курса!");
+            }
+            else if (UserCourseLv.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите курс!");
+            }
+            else
+            {
+                UserCourse selectedCourse = UserCourseLv.SelectedItem as UserCourse;
+                selectedCourse.StatusID = StatusCmb.SelectedIndex + 1;
+                App.context.SaveChanges();
+                MessageBox.Show("Статус успешно изменен!", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 
         }

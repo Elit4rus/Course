@@ -49,15 +49,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="SaveBtn" Grid.Column="5" Width="120" Height="35" Content="Сохранить" Background="White" HorizontalAlignment="Right" Click="SaveBtn_Click" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button x:Name="DeleteBtn" Grid.Column="1" Width="120" Height="35" Content="Удалить" Background="White" Visibility="Collapsed"  Click="DeleteBtn_Click" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button x:Name="SaveBtn" Grid.Column="4" Width="120" Height="35" Content="Сохранить" Background="White" Click="SaveBtn_Click" Style="{StaticResource RoundedButtonStyle}"/>
         </Grid>
         <TextBlock Grid.ColumnSpan="3" x:Name="FullNameTbl" HorizontalAlignment="Center" FontWeight="DemiBold"/>
         <Grid Grid.Row="2">
@@ -72,7 +70,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Мои курсы:" HorizontalAlignment="Center"/>
-            <ListView Grid.Row="2" x:Name="UserCourseLv">
+            <ListView Grid.Row="2" x:Name="UserCourseLv" SelectionChanged="UserCourseLv_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <!-- Создаем столбцы -->

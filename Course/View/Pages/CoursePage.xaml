@@ -1,0 +1,783 @@
+﻿<Page x:Class="Course.View.Pages.CoursePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Course.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="495" d:DesignWidth="820"
+      Title="CoursePage">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="RoundedButtonStyle">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="#FF707070" 
+                            BorderThickness="2" 
+                            CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFBEE6FD"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#C4E5F6"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <Border x:Name="firstCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add1Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add1Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="NameTbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="DescTbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="CategoryTbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullNameTbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FormatTbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="PriceTbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="DurationTbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="secondCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add2Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add2Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name2Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc2Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category2Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName2Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format2Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price2Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration2Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="thirdCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add3Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add3Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name3Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc3Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category3Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName3Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format3Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price3Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration3Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="fourCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add4Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add4Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name4Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc4Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category4Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName4Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format4Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price4Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration4Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="fiveCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add5Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add5Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name5Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc5Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category5Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName5Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format5Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price5Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration5Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="sixCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add6Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add6Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name6Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc6Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category6Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName6Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format6Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price6Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration6Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="sevenCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add7Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add7Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name7Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc7Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category7Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName7Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format7Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price7Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration7Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="eightCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add8Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add8Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name8Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc8Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category8Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName8Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format8Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price8Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration8Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="nineCourse" Margin="10 0 0 10" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add9Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add9Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name9Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc9Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category9Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName9Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format9Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price9Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration9Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="tenCourse" Margin="10 0 0 0" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add10Btn" Margin="10 0 5 5" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" VerticalAlignment="Bottom" Height="40" Width="40" Click="Add10Btn_Click" Content="+" Background="White" Style="{StaticResource RoundedButtonStyle}"/>
+                        <TextBlock x:Name="Name10Tbl" HorizontalAlignment="Center" Margin="0 5 0 10" FontWeight="DemiBold"/>
+                        <Grid Grid.Row="1" Margin="0 0 5 10" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="113"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Desc10Tbl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="16" TextAlignment="Justify"/>
+                        </Grid>
+                        <Grid Grid.Row="2" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Категория:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Category10Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="3" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Преподаватель:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="FullName10Tbl" Grid.Column="2"  FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="4" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Формат:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Format10Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="5" Margin="0 0 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Стоимость:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock x:Name="Price10Tbl" Grid.Column="2" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Row="6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="1" Text="Продолжительность:" FontSize="14" FontWeight="DemiBold"/>
+                            <TextBlock Grid.Column="2" x:Name="Duration10Tbl" FontSize="16" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Column="1" Margin="10 0 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Выберите категорию:" FontSize="16" Margin="0 0 0 10" HorizontalAlignment="Center"/>
+            <ComboBox x:Name="CategoryCmb" Grid.Row="1" Width="150" Height="25" FontSize="12" DisplayMemberPath="Title" SelectedValuePath="ID" SelectionChanged="CategoryCmb_SelectionChanged"/>
+            <Button x:Name="BackBtn" Grid.Row="3" Width="120" Height="35" Content="Назад" Background="White" Style="{StaticResource RoundedButtonStyle}" Click="BackBtn_Click"/>
+        </Grid>
+    </Grid>
+</Page>
